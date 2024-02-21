@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Contrato</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+  <section class="container">
+    <header>Contrato</header>
+      <form id="myForm" action="#" class="form">
+	  
+				<!---1º linha--->
+		<div class="column">
+          <div class="input-box">
+			<label for="cnpjUG">CNPJ da UG:</label>
+			<input type="text" id="cnpjUG" name="cnpjUG" maxlength="14" required>
+		  </div>
+          <div class="input-box">        
+			<label for="numeroProcesso">Número do Processo:</label>
+			<input type="text" id="numeroProcesso" name="numeroProcesso" required>			
+          </div>
+        </div>
+				<!---2º linha--->
+		<div class="column">
+          <div class="input-box">
+			<label for="anoProcesso">Ano do Processo:</label>
+			<input type="text" id="anoProcesso" name="anoProcesso" maxlength="4" required>
+		  </div>
+          <div class="input-box">
+			<label for="numeroContrato">Número do Contrato:</label>
+			<input type="text" id="numeroContrato" name="numeroContrato" required>
+          </div>
+        </div>
+				<!---3º linha--->
+		<div class="column">
+          <div class="input-box">
+			<label for="anoContrato">Ano do Contrato:</label>
+			<input type="text" id="anoContrato" name="anoContrato" maxlength="4" required>
+		  </div>
+          <div class="input-box">
+			<label for="idContratacao">ID de Contratação:</label>
+			<input type="text" id="idContratacao" name="idContratacao" required>
+          </div>
+        </div>
+				<!---4º linha--->
+		<div class="column">
+          <div class="input-box">
+			<label for="idContrato">ID de Contrato:</label>
+			<input type="text" id="idContrato" name="idContrato" required>
+		  </div>
+          <div class="input-box">
+			<label for="cpfCnpj">CPF/CNPJ:</label>
+			<input type="text" id="cpfCnpj" name="cpfCnpj" maxlength="14" required>
+          </div>
+        </div>
+				<!---5º linha--->
+		<div class="column">
+		  <div class="input-box">
+		  <label for="objeto">Objeto:</label>
+        	<textarea id="objeto" name="objeto" required></textarea>
+		  </div>
+		</div>
+		
+		<div class="column">  
+          <div class="input-box">
+			<label for="tipo">Tipo:</label>
+			<input type="text" id="tipo" name="tipo" required>
+          </div>
+        </div>
+				<!---6º linha--->
+		<div class="column">
+          <div class="input-box">
+			<label for="dataAssinatura">Data de Assinatura:</label>
+			<input type="date" id="dataAssinatura" name="dataAssinatura" required>
+		  </div>
+          <div class="input-box">
+			<label for="dataInicio">Data de Início:</label>
+			<input type="date" id="dataInicio" name="dataInicio" required>
+          </div>
+        </div>
+				<!---7º linha--->
+		<div class="column">
+          <div class="input-box">
+			<label for="dataFim">Data de Fim:</label>
+			<input type="date" id="dataFim" name="dataFim" required>
+		  </div>
+          <div class="input-box">
+			<label for="valor">Valor:</label>
+			<input type="number" step="0.01" id="valor" name="valor" required>
+          </div>
+        </div>
+				<!---8º linha--->
+	    <div class="column">
+		  <div class="input-box">
+			<button type="submit">Gerar Arquivo</button>
+		  </div>
+		</div>
+		
+		 <input type="file" id="importJson" accept=".json">
+		 
+    </form>
+  </section>
+
+
+  <script>
+    // Evento de envio do formulário
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Impede o envio padrão do formulário
+
+      // Obtém os valores dos campos do formulário
+      var cnpjUG = document.getElementById('cnpjUG').value;
+      var numeroProcesso = document.getElementById('numeroProcesso').value;
+      var anoProcesso = parseInt(document.getElementById('anoProcesso').value);
+      var numeroContrato = parseInt(document.getElementById('numeroContrato').value);
+      var anoContrato = parseInt(document.getElementById('anoContrato').value);
+      var idContratacao = document.getElementById('idContratacao').value;
+      var idContrato = document.getElementById('idContrato').value;
+      var cpfCnpj = document.getElementById('cpfCnpj').value;
+      var objeto = document.getElementById('objeto').value;
+      var tipo = document.getElementById('tipo').value;
+      var dataAssinatura = document.getElementById('dataAssinatura').value;
+      var dataInicio = document.getElementById('dataInicio').value;
+      var dataFim = document.getElementById('dataFim').value;
+      var valor = parseFloat(document.getElementById('valor').value);
+
+      // Obtém os dados existentes do arquivo JSON
+      var jsonData = [
+        
+      ];
+
+      // Cria um novo objeto com os dados do formulário
+      var newEntry = {
+        "cnpj_ug": cnpjUG,
+        "numero_processo": numeroProcesso,
+        "ano_processo": anoProcesso,
+        "numero_contrato": numeroContrato,
+        "ano_contrato": anoContrato,
+        "id_contratacao": idContratacao,
+        "id_contrato": idContrato,
+        "cpf_cnpj": cpfCnpj,
+        "objeto": objeto,
+        "tipo": tipo,
+        "data_assinatura": dataAssinatura,
+        "data_inicio": dataInicio,
+        "data_fim": dataFim,
+        "valor": valor
+      };
+
+      // Adiciona o novo objeto ao array existente
+      jsonData.push(newEntry);
+
+      // Converte o array para JSON
+      var updatedJsonData = JSON.stringify(jsonData);
+
+      // Cria um objeto Blob com os dados JSON
+      var blob = new Blob([updatedJsonData], {type: 'application/json'});
+
+      // Cria um link para download do arquivo
+      var downloadLink = document.createElement('a');
+      downloadLink.href = URL.createObjectURL(blob);
+      downloadLink.download = 'contrato.json';
+      downloadLink.click();
+    });
+	
+	 // Evento de carregamento do arquivo JSON
+    document.getElementById('importJson').addEventListener('change', function(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        try {
+          var jsonData = JSON.parse(e.target.result);
+          var lastEntry = jsonData[jsonData.length - 1];
+ 
+ 
+          // Preenche os campos do formulário com os dados do último objeto do arquivo JSON
+          document.getElementById('cnpjUG').value = lastEntry.cnpj_ug;
+          document.getElementById('numeroProcesso').value = lastEntry.numero_processo;
+          document.getElementById('anoProcesso').value = lastEntry.ano_processo;
+          document.getElementById('numeroContrato').value = lastEntry.numero_contrato;
+		  document.getElementById('anoContrato').value = lastEntry.ano_contrato;
+          document.getElementById('idContratacao').value = lastEntry.id_contratacao;
+          document.getElementById('idContrato').value = lastEntry.id_contrato;
+          document.getElementById('cpfCnpj').value = lastEntry.cpf_cnpj;
+		  document.getElementById('objeto').value = lastEntry.objeto;
+          document.getElementById('tipo').value = lastEntry.tipo;
+          document.getElementById('dataAssinatura').value = lastEntry.data_assinatura;
+          document.getElementById('dataInicio').value = lastEntry.data_inicio;
+		  document.getElementById('dataFim').value = lastEntry.data_fim;
+          document.getElementById('valor').value = lastEntry.valor || '';
+        
+          alert('Arquivo JSON importado com sucesso!');
+        } catch (error) {
+          alert('Erro ao importar o arquivo JSON.');
+        }
+      };
+
+      reader.readAsText(file);
+    });
+  </script>
+</body>
+</html>

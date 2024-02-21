@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Inicio</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="style.css" />
+<head>
+  
+  <style>
+   
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      color: #333;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    a {
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+	
+	 .logo {
+     // position: relative;
+     // margin-top: -320px;
+    }
+	
+  </style>
+  <script>
+  
+  function abrirPaginaNovaGuia() {
+  const url = "https://app.tcema.tc.br/hotsites/contrata"; // URL da página que deseja abrir
+
+  window.open(url, "_blank");
+}
+
+  </script>
+  
+</head>
+<body>
+
+  <div class="container">
+   <img src="../img/logo.png" alt="Logo" class="logo" width="300">
+    <h1>Gerador de Arquivo JSON</h1>
+	
+    <p>Este Sistema gera os arquivos no formato JSON com os layouts para serem
+	importados para o SINC-Contrata, do Tribunal de Contas do Estado do Maranhão-TCEMA.
+	
+	
+	</p>
+    <!--a href="../../index.html">Saiba mais</a -->
+	<a onclick="abrirPaginaNovaGuia()">Saiba mais</a> 
+	
+  </div>
+  
+</body>
+</html>

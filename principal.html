@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts-icones.css">
+
+    <title>For SINC | Reysoftware</title>
+	
+    <style>
+	
+    	body {
+    	 background: url(img/tela.png) no-repeat center center fixed;
+    	
+        }
+    	titulo {
+    	
+          background-color: white;
+          color: #333333;
+          padding: 0px;
+    	  font-size: 12px;
+    	  text-align: center;
+    	  width:100%;
+        }
+
+          
+         /* Estilo para dispositivos com largura menor ou igual a 600px */
+        @media (max-width: 600px) {
+          body {
+            background-color: lightblue;
+          }
+        }	
+
+	</style>
+	
+<script>
+	
+	// Função executada ao fechar a página
+	window.addEventListener('beforeunload', function() {
+		// remove a sessão
+		removerSessao();
+	});
+	
+	  // Função para validar se a sessão existe
+    function validarSessao() {
+        // Recuperar o valor do localStorage
+      var user = localStorage.getItem("user");
+        // Verificar se o valor é nulo ou não
+      if (user) {
+        // Exibir uma mensagem de que a sessão é válida
+        // alert("Seja bem vindo(a), " + user + "!");
+        // Exibir uma mensagem de que a sessão é válida
+        console.log("Seja bem vindo(a), " + user + "!");
+		
+      } else {
+        // Exibir uma mensagem de que a sessão é inválida
+        // alert("Sessão inválida. Por favor, crie uma sessão primeiro.");
+		window.location.href = "login.html";
+      }
+    }
+
+    // Função para remover a sessão
+    function removerSessao() {
+      // Remover o item do localStorage
+      localStorage.removeItem("user");
+      // Exibir uma mensagem de que a sessão foi removida
+      // alert("Sessão removida. Até logo!");
+      // Atualizar a página
+      window.location.reload();
+    }
+		
+   	
+	//funçao para atualizar a pagina
+	 function atualizarPagina() {
+      location.reload(); // Recarrega a página
+    }
+	
+</script>
+  
+</head>
+
+<!--body onload="validarSessao()"-->
+
+<nav class="menu-sidebar">
+
+        <ul>
+            <li class="has-subnav">
+			    <a onclick="openPage('pages/INICIO.html')" target="_blank">
+				 <!--a onclick="openPage('pages/INICIAL.html')" target="_blank" -->
+                    <i class="icon icon-help-circled icon-text"></i>
+					<span class="menu-texto">Sobre</span>
+                </a>
+              
+            </li>
+			 <!-- dar um espaço -->
+			 <li class="has-subnav">
+    			 <a target="_blank">
+    			    <i class="icon icon-dot-3 icon-text"></i>
+    			    <span class="menu-texto"></span>
+                 </a>
+            </li>
+
+            <li class="has-subnav">
+                <a onclick="openPage('pages/PROCEDIMENTO.html')" target="_blank">
+                   <i class="icon icon-puzzle-piece icon-text"></i>
+				   <span class="menu-texto">Procedimento</span>
+                </a>
+            </li>
+			
+			<li class="has-subnav">
+                <a onclick="openPage('pages/RESULTADO.html')" target="_blank">
+                   <i class="icon icon-star icon-text"></i>
+                   <span class="menu-texto">Resultado</span>
+                </a>
+			</li>
+            
+            <li class="has-subnav">
+                <a onclick="openPage('pages/ATA_REGISTRO.html')" target="_blank">
+                   <i class="icon icon-checklist icon-text"></i>
+                   <span class="menu-texto">Ata de Registro</span>
+                </a>
+            </li>
+
+            <li class="has-subnav">
+                <a onclick="openPage('pages/CADASTRO_ORGAO.html')" target="_blank">
+                   <i class="icon icon-university icon-text"></i>
+                   <span class="menu-texto">Cadastro Órgão</span>
+                </a>
+            </li>
+                        
+            <li>
+               <a onclick="openPage('pages/CADASTRO_LICITANTE.html')" target="_blank">
+                   <i class="icon icon-user icon-text"></i>
+                   <span class="menu-texto">Cadastro Licitante</span>
+                </a>
+            </li>
+
+            <li>
+              <a onclick="openPage('pages/CONTRATO.html')" target="_blank">
+                   <i class="icon icon-file-text icon-text"></i>
+                   <span class="menu-texto">Contrato</span>
+                </a>
+            </li>
+        
+            <li>
+                <a onclick="openPage('pages/SANCAO.html')" target="_blank">
+                   <i class="icon icon-gavel icon-text"></i>
+                   <span class="menu-texto"> Sanção </span>
+                </a>
+            </li>
+        
+        </ul>
+
+        <ul class="logout">
+            
+            <li>
+               <a href="login.html">
+                    <i class="icon icon-plug icon-text"></i>
+                    <span onclick="removerSessao()" class="menu-texto"> Sair</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+	
+	 <section class="container">
+       
+        <h1>For SINC | Gerador de Arquivo JSON</h1>   
+
+    </section>
+
+ <!-- Área de conteúdo -->
+  <div id="content">
+    <iframe id="pageFrame" width="100%" height="565"  frameborder="0"></iframe>
+  </div>
+  
+  <script>
+  
+    // Função para abrir as páginas nos menus
+    function openPage(page) {
+      document.getElementById('pageFrame').src = page;
+      
+      // Mostrar a página correta e ocultar as outras
+      var pages = document.getElementsByClassName('page');
+       for (var i = 0; i < pages.length; i++) {
+        if (pages[i].id === page.replace('.html', '')) {
+          pages[i].style.display = 'block';
+        } else {
+          pages[i].style.display = 'none';
+        }
+      }
+    }
+	
+  </script>
+  
+   <div class="footer">
+     <p>ReySoftware | INFO - Todos os direitos reservados © 2024</p>
+   </div>
+ 
+</body>
+</html>

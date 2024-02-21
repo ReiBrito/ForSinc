@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ata de Registro</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+   <section class="container">
+      <header>Ata de Registro</header>
+      <form id="myForm" action="#" class="form">
+	  
+		<div class="column">
+          <div class="input-box">
+			<label for="idContratacao">ID de Contratação:</label>
+			<input type="text" id="idContratacao" name="idContratacao" placeholder="" required>
+		  </div>
+		  
+          <div class="input-box">
+			<label for="numero">Número:</label>
+			<input type="number" id="numero" name="numero" placeholder="">
+          </div>
+        </div>
+	  
+		<div class="column">  
+		  <div class="input-box">
+			<label for="ano">Ano:</label>
+			<input type="text" id="ano" name="ano" maxlength="4" required>
+		  </div>
+		  <div class="input-box">
+			<label for="valor">Valor:</label>
+			<input type="number" step="0.01" id="valor" name="valor" required>
+          </div>
+		</div> 
+		
+		<div class="column">
+		  <div class="input-box">
+			<label for="dataInicio">Data de Início:</label>
+			<input type="date" id="dataInicio" name="dataInicio" required>
+		  </div>
+		  <div class="input-box">
+			<label for="dataFim">Data de Fim:</label>
+			<input type="date" id="dataFim" name="dataFim" required>
+		  </div>
+	    </div>
+	   
+        <div class="column">
+		  <div class="input-box">
+			<button type="submit">Gerar Arquivo</button>
+		  </div>
+		</div>
+		
+		 <input type="file" id="importJson" accept=".json">
+	  
+    </form>
+   </section>
+
+  <script>
+    // Evento de envio do formulário
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Impede o envio padrão do formulário
+
+      // Obtém os valores dos campos do formulário
+      var idContratacao = document.getElementById('idContratacao').value;
+      var numero = document.getElementById('numero').value;
+      var ano = parseInt(document.getElementById('ano').value);
+      var valor = parseFloat(document.getElementById('valor').value);
+      var dataInicio = document.getElementById('dataInicio').value;
+      var dataFim = document.getElementById('dataFim').value;
+
+      // Obtém os dados existentes do arquivo JSON
+      var jsonData = [
+        
+      ];
+
+      // Cria um novo objeto com os dados do formulário
+      var newEntry = {
+        "id_contratacao": idContratacao,
+        "numero": numero,
+        "ano": ano,
+        "valor": valor,
+        "data_inicio": dataInicio,
+        "data_fim": dataFim
+      };
+
+      // Adiciona o novo objeto ao array existente
+      jsonData.push(newEntry);
+
+      // Converte o array para JSON
+      var updatedJsonData = JSON.stringify(jsonData);
+
+      // Cria um objeto Blob com os dados JSON
+      var blob = new Blob([updatedJsonData], {type: 'application/json'});
+
+      // Cria um link para download do arquivo
+      var downloadLink = document.createElement('a');
+      downloadLink.href = URL.createObjectURL(blob);
+      downloadLink.download = 'ata_registro.json';
+      downloadLink.click();
+    });
+	
+	 // Evento de carregamento do arquivo JSON
+    document.getElementById('importJson').addEventListener('change', function(event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        try {
+          var jsonData = JSON.parse(e.target.result);
+          var lastEntry = jsonData[jsonData.length - 1];
+ 
+ 	
+          // Preenche os campos do formulário com os dados do último objeto do arquivo JSON
+          document.getElementById('idContratacao').value = lastEntry.id_contratacao;
+          document.getElementById('numero').value = lastEntry.numero;
+          document.getElementById('ano').value = lastEntry.ano;
+          document.getElementById('valor').value = lastEntry.valor || '';
+		  document.getElementById('dataInicio').value = lastEntry.data_inicio;
+          document.getElementById('dataFim').value = lastEntry.data_fim;
+
+          alert('Arquivo JSON importado com sucesso!');
+        } catch (error) {
+          alert('Erro ao importar o arquivo JSON.');
+        }
+      };
+
+      reader.readAsText(file);
+    });
+  </script>
+</body>
+</html>
