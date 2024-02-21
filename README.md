@@ -1,6 +1,6 @@
-# Título do projeto
+# For SINC - Gerador de Arquivos JSON 
 
-Um parágrafo da descrição do projeto vai aqui
+Este projeto trata-se de um gerador de arquivos em formato JSON nos layout's do SINC-Contrata do TCE-MA. Ao digitar as informações, o usário gera os arquivos em formato JSON, e em seguida faz o upload no sistema SINC-Contrata do TCE-MA.  
 
 ## 🚀 Começando
 
