@@ -12,8 +12,8 @@ Consulte **[[Implantação](#-implanta%C3%A7%C3%A3o)](https://github.com/ReiBrit
 
 Click no link **(https://forsinc.netlify.app/)** para testar o o sistema on line.
 
-#### Usuário: admin
-#### Senha: 123
+* Usuário: admin
+* Senha: 123
 
 ## 🛠️ Construído com
 
