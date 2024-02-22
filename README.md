@@ -27,8 +27,8 @@ Click no link **(https://forsinc.netlify.app/)** para testar o o sistema on line
 
 ## 📄 Licença
 
-
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE](https://github.com/ReiBrito/ForSinc/LICENSE) para detalhes.
+https://github.com/carloseduardori/Portifolio-Projetos/blob/main/LICENSE
+Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE](https://github.com/ReiBrito/ForSinc/blob/main/LICENSE) para detalhes.
 
 
 
