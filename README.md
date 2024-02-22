@@ -6,26 +6,24 @@ Este projeto trata-se de um gerador de arquivos em formato JSON nos layout's do 
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
+Consulte **[[Implantação](#-implanta%C3%A7%C3%A3o)](https://github.com/ReiBrito/ForSinc)** para saber como implantar o projeto.
 
 ## ⚙️ Executando os testes
 
-Consulte **[[Implantação](#-implanta%C3%A7%C3%A3o)](https://forsinc.netlify.app/)** para saber como implantar o projeto.
+Click no link **(https://forsinc.netlify.app/)** para testar o o sistema.
 
-## 🛠️ Construído com:
+Usuário: admin
+Senha: 123
+
+## 🛠️ Construído com
 
 * Html;
 * CSS;
 * JavaScript.
   
-## ✒️ Autores
+## ✒️ Autor
 
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
-
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
+* **Reinaldo Brito** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/ReiBrito)
 
 ## 📄 Licença
 
