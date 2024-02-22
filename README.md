@@ -6,7 +6,7 @@ Este projeto trata-se de um gerador de arquivos em formato JSON nos layout's do 
 
 Obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-Consulte **(https://github.com/ReiBrito/ForSinc)** para saber como implantar o projeto.
+Consulte **(https://github.com/ReiBrito/ForSinc.git)** para saber como implantar o projeto.
 
 ## ⚙️ Executando os testes
 
