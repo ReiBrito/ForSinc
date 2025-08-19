@@ -21,7 +21,7 @@ Click no link **(https://forsinc.netlify.app/)** para testar o o sistema on line
 * CSS;
 * JavaScript.
 
-## 🖼️ Imagens
+## 🖼️ Visualize algumas telas do sistema
 
 * Tela de Login
   
