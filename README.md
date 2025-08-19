@@ -20,7 +20,13 @@ Click no link **(https://forsinc.netlify.app/)** para testar o o sistema on line
 * Html;
 * CSS;
 * JavaScript.
-  
+
+## 🖼️ Imagens
+
+![forsinc](img/tela.png)
+![forsinc](img/print.png)
+![forsinc](img/print1.png)
+
 ## ✒️ Autor
 
 * **Reinaldo Brito** - *Trabalho Inicial* - [desenvolvedor](https://github.com/ReiBrito)
