@@ -23,10 +23,24 @@ Click no link **(https://forsinc.netlify.app/)** para testar o o sistema on line
 
 ## 🖼️ Imagens
 
+* Tela de Login
+  
 ![forsinc](img/login.png)
+
+* Tela Inicial
+  
 ![forsinc](img/tela_inicial.png)
+
+* Sobre
+  
 ![forsinc](img/sobre.png)
+
+* Cadastro do Licitante
+  
 ![forsinc](img/licitante.png)
+
+* Ata de Registro
+  
 ![forsinc](img/ata_registro.png)
 
 
